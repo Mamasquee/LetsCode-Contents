@@ -25,8 +25,10 @@ Here is a **quick overview** of what we've done so far and where we currently st
 * **Week10**: (Practice session)
 * **Week11**: First steps with shiny
 * **Week12**: (Practice session)
-* **Week13**: **Introduction to shiny dashboards**
-* **Week14**: (Practice session)
-* **Week15**: ... Start working on a common challenge... Split the code to be produce among trainees.
-* **Week16**: (Practice session)
+* **Week13**: Introduction to shiny dashboards
+* **Week14**: (Challenge session) Start working on a common challenge and split code among trainees.
+* **Week15**: (Challenge session) ...
+* **Week16**: (Challenge session) ...
+
+This is it: The end of the 'Let's Code' first session. The next step for each trainee is to find a way to continue their learning path - maybe not in R - by using MOOC (like coursera) or by participating to coding projects (e.g. open source on GitHub) or coding events.
 

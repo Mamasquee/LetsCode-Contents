@@ -9,6 +9,7 @@
 
 library(shiny)
 library(shinydashboard)
+library(leaflet)
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
@@ -19,27 +20,48 @@ sidebar <- dashboardSidebar(
              icon = icon("table"), 
              tabName = "tables",
              badgeLabel = "cool", 
-             badgeColor = "yellow")
+             badgeColor = "yellow"),
+    menuItem("Super cool", 
+             icon = icon("table"), 
+             tabName = "Bloublou",
+             badgeLabel = "new", 
+             badgeColor = "green")
   )
 )
   
 
-dashboardtab <- fluidRow(
+dashboardtab.row1 <- fluidRow(
   # box 1
   box(
-    plotOutput("plot1")
+    title = "Histogram", 
+    status = "danger", 
+    solidHeader = TRUE,
+    collapsible = TRUE,
+    plotOutput("plot1", height=250)
   ),
   # box 2
   box(
+    title= "Histogram parameters",
+    solidHeader = TRUE,
     "Box content here", br(), "More box content",
     sliderInput("bins", "Nb of bins:", 1, 100, 50),
-    textInput("text", "Text input:")
-  ),
+    textInput("text", "Text input:", value = "Hello"),
+    numericInput("Latitude", "lat", min= 2, max= 4, step= 0.1, value= 48.85),
+    numericInput("Longitude", "lng", min= 2, max= 4, step= 0.1, value= 2.35)
+  )
+)
+
+dashboardtab.row2 <- fluidRow(
   # A static valueBox
   valueBox(10 * 2, 
            "New Orders", 
            icon = icon("thumbs-up", lib = "glyphicon"), 
-           color="yellow")
+           color="yellow"),
+  
+  valueBox(10 * 5, 
+           "New things", 
+           icon = icon("thumbs-down", lib = "glyphicon"), 
+           color="aqua")
 )
 
 
@@ -47,11 +69,24 @@ body <- dashboardBody(
   tabItems(
     tabItem(tabName = "dashboard",
             h2("Dashboard tab content"),
-            dashboardtab
+            dashboardtab.row1,
+            dashboardtab.row2
     ),
     
     tabItem(tabName = "tables",
-            h2("Tables tab content")
+            h2("Ma super carte"),
+            box(
+              title= "Ma super carte",
+              leafletOutput("carte")
+              )
+    ),
+    
+    tabItem(tabName = "Bloublou",
+            h2("Blou blou tab content"),
+            
+            box(title= 'Texte',
+                verbatimTextOutput("outText")
+            )
     )
   ) 
 )  

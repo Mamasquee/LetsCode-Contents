@@ -10,4 +10,4 @@ Once we have chosen a project, I will be able to choose the contents of our week
 ## List of ideas (with a short description)
 
 1. Build an interactive map of Paris with cycle paths. 
-1. ...
+1. Build an interactive map of Paris with street lights. Target would be to get an overview of the current infrastructure and estimate costs for a time period using power price curves. 
